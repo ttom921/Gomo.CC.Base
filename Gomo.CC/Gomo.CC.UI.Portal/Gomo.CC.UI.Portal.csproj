@@ -13,7 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gomo.CC.BLL\Gomo.CC.BLL.csproj" />
     <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.IBLL\Gomo.CC.IBLL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />
     <ProjectReference Include="..\Gomo.CC.Model\Gomo.CC.Model.csproj" />
   </ItemGroup>

@@ -8,8 +8,8 @@ namespace Gomo.CC.IBLL
 {
     public interface IBaseService<T> 
     {
-        //#region 查詢
-        //IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda);
+        #region 查詢
+        IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda);
 
         //IQueryable<T> GetPageEntities<S>(int pageSize, int pageIndex, out int total,
         //                                         Expression<Func<T, bool>> whereLambda,
@@ -17,7 +17,7 @@ namespace Gomo.CC.IBLL
         //                                         bool isAsc
         //                                         );
 
-        //#endregion
+        #endregion
 
         #region cud
         T Add(T entity);

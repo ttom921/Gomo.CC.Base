@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.Model\Gomo.CC.Model.csproj" />
+  </ItemGroup>
+
+</Project>

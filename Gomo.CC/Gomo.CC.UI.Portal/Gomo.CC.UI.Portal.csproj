@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.Model\Gomo.CC.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -67,16 +67,12 @@ namespace Gomo.CC.EFDal
         public bool Update(T entity)
         {
             dbContext.Entry(entity).State = EntityState.Modified;
-            //return Db.SaveChanges() > 0;
-            return this.SaveChanges();
-            //return true;
+            return this.SaveChanges()>0;
         }
         public bool Delete(T entity)
         {
             dbContext.Entry(entity).State = EntityState.Deleted;
-            //return Db.SaveChanges() > 0;
-            //return true;
-            return this.SaveChanges();
+            return this.SaveChanges()>0;
         }
         public bool Delete(int id)
         {
@@ -128,9 +124,9 @@ namespace Gomo.CC.EFDal
         //    return ids.Count;
         //}
         #endregion
-        protected bool SaveChanges()
+        public int SaveChanges()
         {
-            return dbContext.SaveChanges() > 0;
+            return dbContext.SaveChanges();
         }
 
     }

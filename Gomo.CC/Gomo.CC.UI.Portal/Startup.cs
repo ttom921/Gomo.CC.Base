@@ -38,15 +38,13 @@ namespace Gomo.CC.UI.Portal
             services.AddDbContext<BloggingContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
 
-            services.AddDbContext<BloggingContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("myHome")));
+           // services.AddDbContext<BloggingContext>(options =>
+           //options.UseSqlServer(Configuration.GetConnectionString("myHome")));
 
 
             // Register application services.
-            services.AddScoped<IBlogDal, BlogDal>();
-
+            services.AddTransient<IBlogDal, BlogDal>();
             services.AddTransient<IBlogService, BlogService>();
-           // services.AddScoped<IBlogService, BlogService>();
 
         }
 

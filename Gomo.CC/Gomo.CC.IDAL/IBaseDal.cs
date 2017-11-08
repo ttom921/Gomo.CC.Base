@@ -30,5 +30,6 @@ namespace Gomo.CC.IDAL
         bool Delete(int id);
 
         #endregion
+        int SaveChanges();
     }
 }

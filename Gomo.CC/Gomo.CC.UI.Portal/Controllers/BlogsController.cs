@@ -13,31 +13,30 @@ namespace Gomo.CC.UI.Portal.Controllers
     public class BlogsController : Controller
     {
         #region 使用dal
-        private readonly IBlogDal _BlogDal;
+        //private readonly IBlogDal _BlogDal;
 
-        public BlogsController(IBlogDal blogDal)
-        {
-            _BlogDal = blogDal;
-        }
-        public IActionResult Index()
-        {
-            //IBlogDal.GetEntities()
-            List<Blog> lst = _BlogDal.GetEntities(u => true).ToList();
-            return View(lst);
-        }
-        #endregion
-        //private readonly IBlogService _BlogService;
-
-        //public BlogsController(IBlogService blogService)
+        //public BlogsController(IBlogDal blogDal)
         //{
-        //    _BlogService = blogService;
+        //    _BlogDal = blogDal;
         //}
         //public IActionResult Index()
         //{
         //    //IBlogDal.GetEntities()
-        //    List<Blog> lst = _BlogService.GetEntities(u => true).ToList();
+        //    List<Blog> lst = _BlogDal.GetEntities(u => true).ToList();
         //    return View(lst);
         //}
+        #endregion
+        private readonly IBlogService _BlogService;
+
+        public BlogsController(IBlogService blogService)
+        {
+            _BlogService = blogService;
+        }
+        public IActionResult Index()
+        {
+            List<Blog> lst = _BlogService.GetEntities(u => true).ToList();
+            return View(lst);
+        }
 
     }
 }

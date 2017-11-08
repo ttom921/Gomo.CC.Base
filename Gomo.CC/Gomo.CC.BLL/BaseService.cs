@@ -22,16 +22,14 @@ namespace Gomo.CC.BLL
 
             return CurrentDal.GetEntities(whereLambda);
         }
-        //public IQueryable<T> GetPageEntities<S>(int pageSize, int pageIndex, out int total,
-        //                                         Expression<Func<T, bool>> whereLambda,
-        //                                         Expression<Func<T, S>> orderByLamba,
-        //                                         bool isAsc
-        //                                         )
-        //{
-        //    int totaltotal = 0;
-        //    return CurrentDal.GetPageEntities(pageSize, pageIndex,out totaltotal, whereLambda, orderByLamba, isAsc);
-
-        //}
+        public IQueryable<T> GetPageEntities<S>(int pageSize, int pageIndex, out int total,
+                                                 Expression<Func<T, bool>> whereLambda,
+                                                 Expression<Func<T, S>> orderByLamba,
+                                                 bool isAsc
+                                                 )
+        {
+            return CurrentDal.GetPageEntities(pageSize, pageIndex, out total, whereLambda, orderByLamba, isAsc);
+        }
         #endregion
         #region cud
 
@@ -39,24 +37,35 @@ namespace Gomo.CC.BLL
         public T Add(T entity)
         {
             CurrentDal.Add(entity);
-            
-            //DbSession.SaveChanges();
+            CurrentDal.SaveChanges();
             return entity;
         }
 
-        bool IBaseService<T>.Delete(T entity)
+        public bool Update(T entity)
         {
-            throw new NotImplementedException();
+            CurrentDal.Update(entity);
+            return CurrentDal.SaveChanges() > 0;
         }
 
-        bool IBaseService<T>.Delete(int id)
+        public bool Delete(T entity)
         {
-            throw new NotImplementedException();
+            CurrentDal.Delete(entity);
+            return CurrentDal.SaveChanges() > 0;
         }
 
-        bool IBaseService<T>.Update(T entity)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            CurrentDal.Delete(id);
+            return CurrentDal.SaveChanges() > 0;
+        }
+        //批量刪除
+        public int DeleteList(List<int> ids)
+        {
+            foreach (var id in ids)
+            {
+                CurrentDal.Delete(id);
+            }
+            return CurrentDal.SaveChanges();
         }
     }
 }

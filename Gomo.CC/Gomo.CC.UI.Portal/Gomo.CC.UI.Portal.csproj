@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
@@ -14,7 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="log4net.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Gomo.CC.BLL\Gomo.CC.BLL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.Common\Gomo.CC.Common.csproj" />
     <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IBLL\Gomo.CC.IBLL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />

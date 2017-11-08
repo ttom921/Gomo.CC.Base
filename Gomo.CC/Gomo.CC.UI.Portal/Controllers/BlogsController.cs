@@ -7,6 +7,7 @@ using Gomo.CC.IDAL;
 using Gomo.CC.EFDAL;
 using Gomo.CC.Model.Models;
 using Gomo.CC.IBLL;
+using Gomo.CC.Common;
 
 namespace Gomo.CC.UI.Portal.Controllers
 {
@@ -34,6 +35,7 @@ namespace Gomo.CC.UI.Portal.Controllers
         }
         public IActionResult Index()
         {
+            LogHelper.WriteLog("BlogsController  log");
             List<Blog> lst = _BlogService.GetEntities(u => true).ToList();
             return View(lst);
         }

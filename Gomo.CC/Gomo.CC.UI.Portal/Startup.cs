@@ -16,14 +16,28 @@ using Gomo.CC.BLL;
 using Autofac;
 using Gomo.CC.UI.Portal.DIModule;
 using Autofac.Extensions.DependencyInjection;
+using log4net.Repository;
+using log4net;
+using log4net.Config;
+using System.IO;
 
 namespace Gomo.CC.UI.Portal
 {
     public class Startup
     {
+        static ILoggerRepository logorep { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            //SetUpLog
+            SetUpLog();
+        }
+        //設定log
+        private void SetUpLog()
+        {
+            logorep = LogManager.CreateRepository("NETCoreRepository");
+            XmlConfigurator.Configure(logorep, new FileInfo("log4net.config"));
         }
 
         public IConfiguration Configuration { get; }

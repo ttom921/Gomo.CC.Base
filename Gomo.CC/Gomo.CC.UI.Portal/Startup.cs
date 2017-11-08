@@ -41,31 +41,25 @@ namespace Gomo.CC.UI.Portal
             //options.UseSqlServer(Configuration.GetConnectionString("myHome")));
 
 
-            var builder = new ContainerBuilder();
-            builder.RegisterType<BlogDal>()
-               .As<IBlogDal>().InstancePerDependency();
-
-            builder.RegisterType<BlogService>()
-                .As<IBlogService>().InstancePerDependency();
-            builder.Populate(services);
-
-            var container = builder.Build();
-
-            return container.Resolve<IServiceProvider>();
-
-            //
             //var builder = new ContainerBuilder();
-            //builder.RegisterModule<ServiceModule>();
+            //builder.RegisterType<BlogDal>()
+            //   .As<IBlogDal>().InstancePerDependency();
+
+            //builder.RegisterType<BlogService>()
+            //    .As<IBlogService>().InstancePerDependency();
             //builder.Populate(services);
-            //ApplicationContainer = builder.Build();
-            //return new AutofacServiceProvider(ApplicationContainer);
 
+            //var container = builder.Build();
 
+            //return container.Resolve<IServiceProvider>();
 
-            //// Register application services.
-            //services.AddTransient<IBlogDal, BlogDal>();
-            //services.AddTransient<IBlogService, BlogService>();
             //
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<DalModule>();
+            builder.RegisterModule<ServiceModule>();
+            builder.Populate(services);
+            ApplicationContainer = builder.Build();
+            return ApplicationContainer.Resolve<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

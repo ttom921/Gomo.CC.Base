@@ -31,35 +31,48 @@ namespace Gomo.CC.UI.Portal
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            
+            // Add framework services.
             services.AddMvc();
             //連結資料庫
             services.AddDbContext<BloggingContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
-
             // services.AddDbContext<BloggingContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("myHome")));
 
 
-            //var builder = new ContainerBuilder();
-            //builder.RegisterType<BlogDal>()
-            //   .As<IBlogDal>().InstancePerDependency();
 
-            //builder.RegisterType<BlogService>()
-            //    .As<IBlogService>().InstancePerDependency();
-            //builder.Populate(services);
 
-            //var container = builder.Build();
 
-            //return container.Resolve<IServiceProvider>();
 
-            //
+
+            //// create custom container
+            //var container = new CustomContainer();
+            //// read service collection to the custom container
+            //container.RegisterFromServiceCollection(services);
+            //// use and configure the custom container
+            //container.RegisterSingelton<IProvider, MyProvider>();
+            //// creating the IServiceProvider out of the custom container
+            //return container.BuildServiceProvider();
+
+            //autofac container
             var builder = new ContainerBuilder();
+            // read service collection to Autofac
+            builder.Populate(services);
+            // use and configure Autofac
             builder.RegisterModule<DalModule>();
             builder.RegisterModule<ServiceModule>();
-            builder.Populate(services);
+            // build the Autofac container
             ApplicationContainer = builder.Build();
+            // creating the IServiceProvider out of the Autofac container
+            //return new AutofacServiceProvider(ApplicationContainer);
             return ApplicationContainer.Resolve<IServiceProvider>();
+            //
+            //var builder = new ContainerBuilder();
+            //builder.RegisterModule<DalModule>();
+            //builder.RegisterModule<ServiceModule>();
+            //builder.Populate(services);
+            //ApplicationContainer = builder.Build();
+            //return ApplicationContainer.Resolve<IServiceProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

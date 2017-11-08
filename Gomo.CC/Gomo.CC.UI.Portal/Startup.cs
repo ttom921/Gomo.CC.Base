@@ -13,6 +13,9 @@ using Gomo.CC.EFDal;
 using Gomo.CC.EFDAL;
 using Gomo.CC.IBLL;
 using Gomo.CC.BLL;
+using Autofac;
+using Gomo.CC.UI.Portal.DIModule;
+using Autofac.Extensions.DependencyInjection;
 
 namespace Gomo.CC.UI.Portal
 {
@@ -24,28 +27,45 @@ namespace Gomo.CC.UI.Portal
         }
 
         public IConfiguration Configuration { get; }
-
+        public IContainer ApplicationContainer { get; private set; }
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-
-
-
             
             services.AddMvc();
-            //var connection = @"Data Source=DESKTOP-NITSS8T;Initial Catalog=Blogging;User ID=sa;Password=12345678;";
-            //services.AddDbContext<BloggingContext>(options => options.UseSqlServer(connection));
+            //連結資料庫
             services.AddDbContext<BloggingContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
 
-           // services.AddDbContext<BloggingContext>(options =>
-           //options.UseSqlServer(Configuration.GetConnectionString("myHome")));
+            // services.AddDbContext<BloggingContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("myHome")));
 
 
-            // Register application services.
-            services.AddTransient<IBlogDal, BlogDal>();
-            services.AddTransient<IBlogService, BlogService>();
+            var builder = new ContainerBuilder();
+            builder.RegisterType<BlogDal>()
+               .As<IBlogDal>().InstancePerDependency();
 
+            builder.RegisterType<BlogService>()
+                .As<IBlogService>().InstancePerDependency();
+            builder.Populate(services);
+
+            var container = builder.Build();
+
+            return container.Resolve<IServiceProvider>();
+
+            //
+            //var builder = new ContainerBuilder();
+            //builder.RegisterModule<ServiceModule>();
+            //builder.Populate(services);
+            //ApplicationContainer = builder.Build();
+            //return new AutofacServiceProvider(ApplicationContainer);
+
+
+
+            //// Register application services.
+            //services.AddTransient<IBlogDal, BlogDal>();
+            //services.AddTransient<IBlogService, BlogService>();
+            //
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

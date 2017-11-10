@@ -20,6 +20,7 @@ using log4net.Repository;
 using log4net;
 using log4net.Config;
 using System.IO;
+using Hangfire;
 
 namespace Gomo.CC.UI.Portal
 {
@@ -31,7 +32,7 @@ namespace Gomo.CC.UI.Portal
         {
             Configuration = configuration;
 
-            //SetUpLog
+            //設定log
             SetUpLog();
         }
         //設定log
@@ -41,7 +42,12 @@ namespace Gomo.CC.UI.Portal
             XmlConfigurator.Configure(logorep, new FileInfo("log4net.config"));
             log = LogManager.GetLogger(logorep.Name, typeof(Startup));
         }
-
+        //設定hangfire
+        void SetUpHangfire(IServiceCollection services)
+        {
+            services.AddHangfire(config =>
+                config.UseSqlServerStorage(Configuration.GetConnectionString("HangfireConnection")));
+        }
         public IConfiguration Configuration { get; }
         public IContainer ApplicationContainer { get; private set; }
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -49,6 +55,8 @@ namespace Gomo.CC.UI.Portal
         {
             log.Info("start ConfigureServices...");
             // Add framework services.
+            //加入handfire
+            SetUpHangfire(services);
             services.AddMvc();
             //連結資料庫
             services.AddDbContext<BloggingContext>(options =>
@@ -96,6 +104,10 @@ namespace Gomo.CC.UI.Portal
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //使用Hangfire
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

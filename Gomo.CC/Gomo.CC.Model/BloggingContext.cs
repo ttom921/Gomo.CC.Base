@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Gomo.CC.Model.Models
+namespace Gomo.CC.Model
 {
     public partial class BloggingContext : DbContext
     {
@@ -10,18 +10,9 @@ namespace Gomo.CC.Model.Models
         public virtual DbSet<Post> Post { get; set; }
 
         public BloggingContext(DbContextOptions<BloggingContext> options)
-            : base(options)
+         : base(options)
         {
-
         }
-        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //        {
-        //            if (!optionsBuilder.IsConfigured)
-        //            {
-        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-        //                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-NITSS8T;Initial Catalog=Blogging;User ID=sa;Password=12345678;");
-        //            }
-        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

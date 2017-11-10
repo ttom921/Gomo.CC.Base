@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Gomo.CC.Model.Models
+namespace Gomo.CC.Model
 {
     public partial class Post
     {

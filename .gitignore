@@ -286,3 +286,4 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/Gomo.CC/Gomo.CC.UI.Portal/wwwroot/.gitignore

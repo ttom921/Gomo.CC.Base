@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using Gomo.CC.Model.Models;
+using Gomo.CC.Model;
 using Gomo.CC.IDAL;
 using Gomo.CC.EFDal;
 using Gomo.CC.EFDAL;

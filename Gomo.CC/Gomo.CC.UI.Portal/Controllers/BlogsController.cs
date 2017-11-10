@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Gomo.CC.IDAL;
 using Gomo.CC.EFDAL;
-using Gomo.CC.Model.Models;
+using Gomo.CC.Model;
 using Gomo.CC.IBLL;
 using Gomo.CC.Common;
 

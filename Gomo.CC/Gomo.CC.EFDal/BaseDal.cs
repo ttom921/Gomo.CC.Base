@@ -1,5 +1,5 @@
 ﻿using Gomo.CC.IDAL;
-using Gomo.CC.Model.Models;
+using Gomo.CC.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

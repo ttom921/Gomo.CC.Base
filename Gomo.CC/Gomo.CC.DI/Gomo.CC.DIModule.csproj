@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="DIDal.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DIDal.tt</DependentUpon>
+    </None>
+    <None Include="DIService.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DIService.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Gomo.CC.BLL\Gomo.CC.BLL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.IBLL\Gomo.CC.IBLL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />
+    <ProjectReference Include="..\Gomo.CC.Model\Gomo.CC.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DIDal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DIDal.cs</LastGenOutput>
+    </None>
+    <None Update="DIService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DIService.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DIDal.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DIDal.tt</DependentUpon>
+    </Compile>
+    <Compile Update="DIService.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DIService.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

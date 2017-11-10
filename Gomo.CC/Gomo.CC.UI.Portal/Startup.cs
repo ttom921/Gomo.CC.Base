@@ -14,13 +14,13 @@ using Gomo.CC.EFDAL;
 using Gomo.CC.IBLL;
 using Gomo.CC.BLL;
 using Autofac;
-using Gomo.CC.UI.Portal.DIModule;
 using Autofac.Extensions.DependencyInjection;
 using log4net.Repository;
 using log4net;
 using log4net.Config;
 using System.IO;
 using Hangfire;
+using Gomo.CC.DIModule;
 
 namespace Gomo.CC.UI.Portal
 {

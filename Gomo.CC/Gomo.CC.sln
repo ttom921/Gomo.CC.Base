@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gomo.CC.UI.Portal", "Gomo.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{6F5E9F09-F9CF-4845-9AC0-19A1296E4F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gomo.CC.Common", "Gomo.CC.Common\Gomo.CC.Common.csproj", "{56955421-48FD-43A0-AA81-19997D585F28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gomo.CC.Common", "Gomo.CC.Common\Gomo.CC.Common.csproj", "{56955421-48FD-43A0-AA81-19997D585F28}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{04B5BDCD-2CA2-4746-8E71-5FA2D4EC6CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gomo.CC.DIModule", "Gomo.CC.DI\Gomo.CC.DIModule.csproj", "{7B8000DB-9B5B-4EAE-A746-60228A89C265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{56955421-48FD-43A0-AA81-19997D585F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56955421-48FD-43A0-AA81-19997D585F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56955421-48FD-43A0-AA81-19997D585F28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B8000DB-9B5B-4EAE-A746-60228A89C265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8000DB-9B5B-4EAE-A746-60228A89C265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8000DB-9B5B-4EAE-A746-60228A89C265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8000DB-9B5B-4EAE-A746-60228A89C265}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

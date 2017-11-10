@@ -26,6 +26,7 @@ namespace Gomo.CC.UI.Portal
     public class Startup
     {
         static ILoggerRepository logorep { get; set; }
+        public ILog log;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -38,6 +39,7 @@ namespace Gomo.CC.UI.Portal
         {
             logorep = LogManager.CreateRepository("NETCoreRepository");
             XmlConfigurator.Configure(logorep, new FileInfo("log4net.config"));
+            log = LogManager.GetLogger(logorep.Name, typeof(Startup));
         }
 
         public IConfiguration Configuration { get; }
@@ -45,6 +47,7 @@ namespace Gomo.CC.UI.Portal
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            log.Info("start ConfigureServices...");
             // Add framework services.
             services.AddMvc();
             //連結資料庫
@@ -79,6 +82,7 @@ namespace Gomo.CC.UI.Portal
             ApplicationContainer = builder.Build();
             // creating the IServiceProvider out of the Autofac container
             //return new AutofacServiceProvider(ApplicationContainer);
+            log.Info("Done ConfigureServices...");
             return ApplicationContainer.Resolve<IServiceProvider>();
             //
             //var builder = new ContainerBuilder();

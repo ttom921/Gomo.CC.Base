@@ -107,6 +107,8 @@ namespace Gomo.CC.UI.Portal
             //使用Hangfire
             app.UseHangfireDashboard();
             app.UseHangfireServer();
+            //起動shcedulejob
+            Helpers.Hangfire.HangfireHelp.Instance.DelayScheculdeJob();
 
             if (env.IsDevelopment())
             {

@@ -1,4 +1,4 @@
-﻿using Gomo.CC.Model.Models;
+﻿using Gomo.CC.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -41,7 +41,7 @@ namespace Gomo.CC.UI.Portal.Helpers.Hangfire
             RecurringJob.AddOrUpdate<SendMessageAlert>("SendMessage", x => x.SendMessage(),
              Cron.Minutely(), timeZoneInfo
             );
-
+            // TODO:點數
             #region 訊息通知
             RecurringJob.RemoveIfExists("AutoPointScheculdeJob");
             //MessageHelp.Instance.ScheculdeJobStart();

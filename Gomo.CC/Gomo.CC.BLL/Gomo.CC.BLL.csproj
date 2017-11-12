@@ -22,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="BLL - 複製.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
     <None Update="BLL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BLL.cs</LastGenOutput>

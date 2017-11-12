@@ -287,3 +287,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 /Gomo.CC/Gomo.CC.UI.Portal/wwwroot/.gitignore
+/Gomo.CC/Gomo.CC.UI.Portal/wwwroot/Log_Data

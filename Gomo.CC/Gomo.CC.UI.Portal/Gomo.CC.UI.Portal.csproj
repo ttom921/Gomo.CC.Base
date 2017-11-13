@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Gomo.CC.BLL\Gomo.CC.BLL.csproj" />
     <ProjectReference Include="..\Gomo.CC.Common\Gomo.CC.Common.csproj" />
+    <ProjectReference Include="..\Gomo.CC.DIModule\Gomo.CC.DIModule.csproj" />
     <ProjectReference Include="..\Gomo.CC.DI\Gomo.CC.DIModule.csproj" />
     <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IBLL\Gomo.CC.IBLL.csproj" />

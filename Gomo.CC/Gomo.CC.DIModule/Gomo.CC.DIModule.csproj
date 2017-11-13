@@ -5,19 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="DIDal.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DIDal.tt</DependentUpon>
-    </None>
-    <None Include="DIService.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DIService.tt</DependentUpon>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
   </ItemGroup>
 
@@ -26,7 +13,6 @@
     <ProjectReference Include="..\Gomo.CC.EFDal\Gomo.CC.EFDAL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IBLL\Gomo.CC.IBLL.csproj" />
     <ProjectReference Include="..\Gomo.CC.IDAL\Gomo.CC.IDAL.csproj" />
-    <ProjectReference Include="..\Gomo.CC.Model\Gomo.CC.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>
